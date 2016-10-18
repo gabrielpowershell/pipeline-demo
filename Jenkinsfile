@@ -34,7 +34,7 @@ echo "step 6"
 
 checkpoint 'packaged'
 
-stage concurrency: 2, name: "acceptance-test"
+stage name: "acceptance-test"
 
 node {
     parallel first: {

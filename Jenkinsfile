@@ -37,30 +37,10 @@ checkpoint 'packaged'
 stage name: "acceptance-test"
 
 node {
-    parallel first: {
     for (def i = 0; i < 4; i++) {
         echo "building main... $i"
         sleep 1
     }
-}, secondBranch: {
-    for (def i = 0; i < 2; i++) {
-        echo "building main in parallel ... $i"
-        sleep 2
-    }
-}
-}
-
-node {
-    parallel first: {
-    for (def i = 0; i < 4; i++) {
-        echo "building secondary... $i"
-        sleep 3
-    }
-}, secondBranch: {
-    for (def i = 0; i < 2; i++) {
-        echo "building secondary in parallel ... $i"
-    }
-}
 }
 
 checkpoint 'accepted'
